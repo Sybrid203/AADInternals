@@ -790,7 +790,7 @@ function Get-AADConfigDbConnection
         $dBServer =          (Get-ItemProperty -Path $parametersPath).Server
         $dBName =            (Get-ItemProperty -Path $parametersPath).DBName
         $dBInstance =        (Get-ItemProperty -Path $parametersPath).SQLInstance
-        $connectionString  = "Data Source=$dbServer\$dBInstance;Initial Catalog=$dBName"
+        $connectionString  = "Data Source=$dbServer\$dBInstance;Initial Catalog=$dBName;Trusted_Connection=True" #Did not work without adding Trusted_Connection=True.
     }
     Process
     {
